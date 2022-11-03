@@ -2,7 +2,10 @@ import fileinput
 from threading import Thread
 import sys,os
 
-def receive(p,f,c1,l1,pn1,t1,e1):
+def receive(p,f,c1,l1,pn1,e1):
+    global linhas = []
+    global ocorrencias = []
+    global nlinhas = []
     if c1 == True:
         c11 = True
     else:
@@ -17,32 +20,37 @@ def receive(p,f,c1,l1,pn1,t1,e1):
         with open(f, 'r', encoding='utf_8') as f2:
             n = 0
             line = 0
+            lines = []
             for linha in f2:
                 if p2 in linha:
                     line += 1
-                    print(linha)
+                    lines = lines + [linha]
                     n += 1
-        if c2 == True:
-            print(str(n) + " ocorrencias da palavra pesquisada") #bug de 2 ocorrencias na mesma linha
-        if l2 == True:
-            print(str(l) + " linhas tiveram ocorrencia da palavra pesquisada")
+            linhas = linhas + [lines]
+            if c2 == True:
+                ocorrencias = ocorrencias + [n]
+            if l2 == True:
+                nlinhas = nlinhas + [line]
 #-----------------------------------------------------------------------------------------
-    if pn == False:
+    if pn == 1:
         for f1 in f:
             ler(p,f1,c11,l11)
     else:
-        if t1 == True:
-            for f1 in f: 
+            pass
+            #for f1 in f: 
+                
                 #no clue how to make multi threading in a way that actually uses multiple files and joins them correctly (pn)
                 #glob??? será q funciona???
-                newT = Thread(target = ler,args =(p,f1,c11,l11)) #pn é nº de threads a fazer a paralelizaçao, em geral o nº total e simultaneo sao iguais
-                newT.start()
-                newT.join()
-        else:
-            for _ in f: #substitui para f2
-                pass
-                #fazer o fork para processos
-
+                #newT = Thread(target = ler,args =(p,f1,c11,l11,)) #pn é nº de threads a fazer a paralelizaçao, em geral o nº total e simultaneo sao iguais
+                #newT.start()
+                #newT.join()
+    for i in range(len(f)):
+        i2 = i + 1
+        print("o ficheiro nº " + i2 + " contem as seguintes linhas:")
+        print(linhas[i])
+        print("o numero total de ocorrencias da palavra neste ficheiro foram " + ocorrencias[i])
+        print("o numero total de linhas com esta palavra neste ficheiro foram " + nlinhas[i])
+        
 #receive("cai",["teste.txt","teste2.txt"])
 
 if __name__ == '__main__':
@@ -60,14 +68,12 @@ if __name__ == '__main__':
         for i in tudo:
             if i == "-p":
                 pn = int(tudo[i+1])
-    if "-t" in tudo:
-        t = True
     if "-e" in tudo:
         e = True
         #suposto dividir o ficheiro e fazer multi/paralelização a cada uma das partes individualmente
         #ver os.stat() e file.readlines()    
         #dividir por linhas ou em mini ficheiros??????
-    receive(sys.argv[-2],sys.argv[-1],c,l,pn,t,e)
+    receive(sys.argv[-2],sys.argv[-1],c,l,pn,e)
 
 
 
