@@ -47,31 +47,26 @@ def receive(p,f,c1,l1,pn1,t1,e1):
 
 if __name__ == '__main__':
     tudo = list(sys.argv)
+    c = False
+    l = False
+    pn = 1
+    t = False
+    e = False
     if "-c" in tudo:
         c = True
-    else:
-        c = False
     if "-l" in tudo:
         l = True
-    else: 
-        l = False
     if "-p" in tudo:
         for i in tudo:
             if i == "-p":
                 pn = int(tudo[i+1])
-    else:
-        pn = False
     if "-t" in tudo:
         t = True
-    else: 
-        t = False
     if "-e" in tudo:
         e = True
         #suposto dividir o ficheiro e fazer multi/paralelização a cada uma das partes individualmente
         #ver os.stat() e file.readlines()    
         #dividir por linhas ou em mini ficheiros??????
-    else: 
-        e = False
     receive(sys.argv[-2],sys.argv[-1],c,l,pn,t,e)
 
 
