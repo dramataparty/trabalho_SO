@@ -1,5 +1,6 @@
+import fileinput
 from threading import Thread
-import sys
+import sys,os
 
 def receive(p,f,c1,l1,pn1,t1,e1):
     if c1 == True:
@@ -31,8 +32,10 @@ def receive(p,f,c1,l1,pn1,t1,e1):
             ler(p,f1,c11,l11)
     else:
         if t1 == True:
-            for f1 in f: #no clue how to make multi threading in a way that actually uses multiple files and joins them correctly (pn)
-                newT = Thread(target = ler,args =(p,f1,c11,l11)) #pn é quantas threads ao mesmo tempo ou total ??????
+            for f1 in f: 
+                #no clue how to make multi threading in a way that actually uses multiple files and joins them correctly (pn)
+                #glob??? será q funciona???
+                newT = Thread(target = ler,args =(p,f1,c11,l11)) #pn é nº de threads a fazer a paralelizaçao, em geral o nº total e simultaneo sao iguais
                 newT.start()
                 newT.join()
         else:
@@ -64,6 +67,18 @@ if __name__ == '__main__':
         t = False
     if "-e" in tudo:
         e = True
+        #suposto dividir o ficheiro e fazer multi/paralelização a cada uma das partes individualmente
+        #ver os.stat() e file.readlines()    
+        #dividir por linhas ou em mini ficheiros??????
     else: 
         e = False
     receive(sys.argv[-2],sys.argv[-1],c,l,pn,t,e)
+
+
+
+#Testes da metodos de split
+#for count,line in f1:
+    #enumerate(f1)
+
+#count = count+1
+
