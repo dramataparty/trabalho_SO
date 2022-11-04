@@ -73,7 +73,10 @@ if __name__ == '__main__':                                                      
     for x in tudo:                                              #para todos os argumentos, os que tiverem ".txt" sao os ficheiros
         if ".txt" in x:
             ficheiros = ficheiros + x  
-    receive(sys.argv[-2],ficheiros,c,l,pn,e)
+        for x1 in range(len(tudo)):
+            if ".txt" in tudo[x1]:
+                pal = tudo[x1-1]
+    receive(pal,ficheiros,c,l,pn,e)
 
 
 # for x in range 5 Os.fork() e Os.exec() pra processos??? for real??
