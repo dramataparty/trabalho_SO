@@ -70,3 +70,6 @@ if __name__ == '__main__':                                                      
     if "-e" in tudo:
         e = True
     receive(sys.argv[-2],sys.argv[-1],c,l,pn,e)
+
+
+# for x in range 5 Os.fork() e Os.exec() pra processos??? for real??
