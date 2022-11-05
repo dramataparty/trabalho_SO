@@ -6,18 +6,16 @@
 import sys
 import os
 
-def main(args):
-    print('Programa: pgrepwc_processos.py')
-    print('Argumentos: ',args)
-
-#------------------------------------------------------------------------------------------
-def receive(Rword,Rfiles,Rc,Rl,Rpn,Re):   
+def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
     linhas = []
     if Rc == True:
         ocorrencias = []           #Esta parte do codigo está encarregada de criar variaveis globais que vao ser utilizadas
     if Rl == True:                 #pelas threads para no final o processo pai imprimir cada valor ele proprio (é obrigatorio que apenas o processo pai imprima)
         nlinhas = []
+    print('Programa: pgrepwc_processos.py')
+    print('Argumentos: ',Rword,Rfiles,Rc,Rl,Rpn,Re)
 
+#------------------------------------------------------------------------------------------
 
     def ler(Lword,Lfiles,Lc,Ll):
             for Lfile in Lfiles:
@@ -96,4 +94,3 @@ if __name__ == "__main__":
             if ".txt" in tudo[x1]:
                 pal = tudo[x1-1]
     main(pal,ficheiros,c,l,pn,e)
-    main(sys.argv[1:])
