@@ -1,4 +1,5 @@
 from threading import Thread
+import os
 import sys
 #------------------------------------------------------------------------------------------
 def receive(Rword,Rfiles,Rc,Rl,Rpn,Re):   
@@ -80,3 +81,7 @@ if __name__ == '__main__':                                                      
 
 
 # for x in range 5 Os.fork() e Os.exec() pra processos??? for real??
+
+
+
+#-----------------------------------------------------------------------------------------------
