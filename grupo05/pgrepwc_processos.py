@@ -10,33 +10,6 @@ def main(args):
     print('Programa: pgrepwc_processos.py')
     print('Argumentos: ',args)
 
-if __name__ == "__main__":
-    tudo = list(sys.argv)
-    c = False
-    l = False
-    pn = 1
-    e = False
-    pal = 0
-    if "-c" in tudo:                                            #esta parte está encarregada de receber os argumentos da consola, e verificar se eles estao la (True)
-        c = True                                                #ou se nao estao (False)
-    if "-l" in tudo:                                            #De momento existe uma questao/problema, que é se os ficheiros sao dados como um argumento(lista de 
-        l = True                                                #strings) ou se sao dados como varias strings que nos é que temos de transformar numa lista, se for 
-    if "-p" in tudo:                                            #um argumento lista, isto funciona bem, se nao, entao temos de criar a lista nós proprios, eu tenho
-        for i in tudo:                                          #uma vaga ideia de como o fazer (procurar por todos os argumentos por os que contem ".txt" neles),
-            if i == "-p":                                       #mas ainda estava a espera da resposta dos professores para ter a certeza se isto era ou nao necessario.
-                pn = int(tudo[i+1])
-    if "-e" in tudo:
-        e = True
-    ficheiros = []
-    for x in tudo:                                              #para todos os argumentos, os que tiverem ".txt" sao os ficheiros
-        if ".txt" in x:
-            ficheiros = ficheiros + x  
-        for x1 in range(len(tudo)):
-            if ".txt" in tudo[x1]:
-                pal = tudo[x1-1]
-    main(pal,ficheiros,c,l,pn,e)
-    main(sys.argv[1:])
-
 #------------------------------------------------------------------------------------------
 def receive(Rword,Rfiles,Rc,Rl,Rpn,Re):   
     linhas = []
@@ -95,3 +68,32 @@ def receive(Rword,Rfiles,Rc,Rl,Rpn,Re):
             print("o numero total de ocorrencias da palavra neste ficheiro foram " + ocorrencias[i])       #isto está organizado por ficheiro (cada ficheiro N
         if Rl == True:                                                                                     #da print das suas linhas, e depois o ficheiro N+1 faz o 
             print("o numero total de linhas com esta palavra neste ficheiro foram " + nlinhas[i])
+
+
+
+if __name__ == "__main__":
+    tudo = list(sys.argv)
+    c = False
+    l = False
+    pn = 1
+    e = False
+    pal = 0
+    if "-c" in tudo:                                            #esta parte está encarregada de receber os argumentos da consola, e verificar se eles estao la (True)
+        c = True                                                #ou se nao estao (False)
+    if "-l" in tudo:                                            #De momento existe uma questao/problema, que é se os ficheiros sao dados como um argumento(lista de 
+        l = True                                                #strings) ou se sao dados como varias strings que nos é que temos de transformar numa lista, se for 
+    if "-p" in tudo:                                            #um argumento lista, isto funciona bem, se nao, entao temos de criar a lista nós proprios, eu tenho
+        for i in tudo:                                          #uma vaga ideia de como o fazer (procurar por todos os argumentos por os que contem ".txt" neles),
+            if i == "-p":                                       #mas ainda estava a espera da resposta dos professores para ter a certeza se isto era ou nao necessario.
+                pn = int(tudo[i+1])
+    if "-e" in tudo:
+        e = True
+    ficheiros = []
+    for x in tudo:                                              #para todos os argumentos, os que tiverem ".txt" sao os ficheiros
+        if ".txt" in x:
+            ficheiros = ficheiros + x  
+        for x1 in range(len(tudo)):
+            if ".txt" in tudo[x1]:
+                pal = tudo[x1-1]
+    main(pal,ficheiros,c,l,pn,e)
+    main(sys.argv[1:])
