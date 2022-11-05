@@ -59,7 +59,7 @@ if __name__ == '__main__':                                                      
     c = False
     l = False
     pn = 1
-    pal = 0
+    pal = ""
     e = False
     if "-c" in tudo:                                            #esta parte está encarregada de receber os argumentos da consola, e verificar se eles estao la (True)
         c = True                                                #ou se nao estao (False)

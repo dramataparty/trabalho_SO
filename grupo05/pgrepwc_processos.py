@@ -78,7 +78,7 @@ if __name__ == "__main__":
     l = False
     pn = 1
     e = False
-    pal = 0
+    pal = ""
     if "-c" in tudo:                                            #esta parte está encarregada de receber os argumentos da consola, e verificar se eles estao la (True)
         c = True                                                #ou se nao estao (False)
     if "-l" in tudo:                                            #De momento existe uma questao/problema, que é se os ficheiros sao dados como um argumento(lista de 
