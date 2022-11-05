@@ -68,23 +68,23 @@ def receive(Rword,Rfiles,Rc,Rl,Rpn,Re):
    
     if Rpn == 1:                                   
             ler(Rword,Rfiles,Rc,Rl)
-        else:
-            ls = []                                   
-            for _ in range(Rpn):                       
-                ls = ls + [[]]                         
-            nxt = 0                                     
-            for f in Rfiles:                           
-                ls[nxt] = ls[nxt] + [f]
-                nxt = (nxt + 1) % Rpn
-            for t in range(Rpn):
-                newps = os.fork()                 
-                if newps == 0:
-                    ler(Rword,ls[t],Rc,Rl)
-                else:
-                    os.wait()
+    else:
+        ls = []                                   
+        for _ in range(Rpn):                       
+            ls = ls + [[]]                         
+        nxt = 0                                     
+        for f in Rfiles:                           
+            ls[nxt] = ls[nxt] + [f]
+            nxt = (nxt + 1) % Rpn
+        for t in range(Rpn):
+            newps = os.fork()                 
+            if newps == 0:
+                ler(Rword,ls[t],Rc,Rl)
+            else:
+                os.wait()
                     
             for _ in range(Rpn):                                                        
-                os.close()
+                os.execl()
                 
     for i2 in range(len(Rfiles)):
         i3 = i2 + 1
