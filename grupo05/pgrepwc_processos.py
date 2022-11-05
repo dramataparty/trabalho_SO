@@ -23,6 +23,9 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
                     n = 0
                     nline = 0
                     lines = []
+                    linhas = []
+                    ocorrencias=[]
+                    nlinhas=[]
                     for linha in file:
                         palavras = linha.split()
                         if Lword in palavras:                              #Função encarregada de ler varios ficheiros e adicionar as linhas encontradas
@@ -60,12 +63,12 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
                 
     for i2 in range(len(Rfiles)):
         i3 = i2 + 1
-        print("o ficheiro nº " + i3 + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
-        print(linhas[i])                                                                                   #mas se o utilizador nao colocar -c ou -l 
+        print("o ficheiro nº " + str(i3) + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
+        print(linhas[i2])                                                                                   #mas se o utilizador nao colocar -c ou -l 
         if Rc == True:                                                                                     # ele automaticamente nao da print disso.
-            print("o numero total de ocorrencias da palavra neste ficheiro foram " + ocorrencias[i])       #isto está organizado por ficheiro (cada ficheiro N
+            print("o numero total de ocorrencias da palavra neste ficheiro foram " + str(ocorrencias[i]))       #isto está organizado por ficheiro (cada ficheiro N
         if Rl == True:                                                                                     #da print das suas linhas, e depois o ficheiro N+1 faz o 
-            print("o numero total de linhas com esta palavra neste ficheiro foram " + nlinhas[i])
+            print("o numero total de linhas com esta palavra neste ficheiro foram " + str(nlinhas[i]))
 
 
 
