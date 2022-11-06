@@ -55,7 +55,7 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
     for i2 in range(len(Rfiles)):
         i3 = i2 + 1
         print("o ficheiro nº " + i3 + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
-        print(linhas[i])                                                                                   #mas se o utilizador nao colocar -c ou -l 
+        print(linhas[i2])                                                                                   #mas se o utilizador nao colocar -c ou -l 
         if Rc == True:                                                                                     # ele automaticamente nao da print disso.
             print("o numero total de ocorrencias da palavra neste ficheiro foram " + ocorrencias[i])       #isto está organizado por ficheiro (cada ficheiro N
         if Rl == True:                                                                                     #da print das suas linhas, e depois o ficheiro N+1 faz o 
