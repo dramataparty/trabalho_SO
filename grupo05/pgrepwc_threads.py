@@ -15,13 +15,13 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
 #------------------------------------------------------------------------------------------
     def ler(Lword,Lfiles,Lc,Ll):
         for Lfile in Lfiles:
+            linhas = []
+            ocorrencias=[]
+            nlinhas=[]
             with open(Lfile, 'r', encoding='utf_8') as file:
                 n = 0
                 nline = 0
                 lines = []
-                linhas = []
-                ocorrencias=[]
-                nlinhas=[]
                 for linha in file:
                     palavras = linha.split()
                     if Lword in palavras:                              #Função encarregada de ler varios ficheiros e adicionar as linhas encontradas
