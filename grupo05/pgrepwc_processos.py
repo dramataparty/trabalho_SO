@@ -61,7 +61,7 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
             for _ in range(Rpn):                                                        
                 os.execl()
                 
-    for i2 in range(len(Rfiles)):
+    for i2 in range(len(Rfiles)-1):
         i3 = i2 + 1
         print("o ficheiro nº " + str(i3) + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
         print(linhas[i2])                                                                                   #mas se o utilizador nao colocar -c ou -l 

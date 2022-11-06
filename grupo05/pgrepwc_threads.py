@@ -52,14 +52,14 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
         for _ in range(Rpn):                                                        #faz um ciclo for para "acabar" essas N threads
             newT.join()
 #-----------------------------------------------------------------------------------------
-    for i2 in range(len(Rfiles)):
+    for i2 in range(len(Rfiles)-1):
         i3 = i2 + 1
-        print("o ficheiro nº " + i3 + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
+        print("o ficheiro nº " + str(i3) + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
         print(linhas[i2])                                                                                   #mas se o utilizador nao colocar -c ou -l 
         if Rc == True:                                                                                     # ele automaticamente nao da print disso.
-            print("o numero total de ocorrencias da palavra neste ficheiro foram " + ocorrencias[i])       #isto está organizado por ficheiro (cada ficheiro N
+            print("o numero total de ocorrencias da palavra neste ficheiro foram " + str(ocorrencias[i]))       #isto está organizado por ficheiro (cada ficheiro N
         if Rl == True:                                                                                     #da print das suas linhas, e depois o ficheiro N+1 faz o 
-            print("o numero total de linhas com esta palavra neste ficheiro foram " + nlinhas[i])          #mesmo--- Eu nao tenho a certeza se tem de tar organizado 
+            print("o numero total de linhas com esta palavra neste ficheiro foram " + str(nlinhas[i]))         #mesmo--- Eu nao tenho a certeza se tem de tar organizado 
 #------------------------------------------------------------------------------------------                #por ficheiros ou por threads, mas nao consegui encontrar
 if __name__ == '__main__':                                                                                 #no enunciado por isso decidi ficheiros).
     tudo = list(sys.argv)
