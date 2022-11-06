@@ -66,9 +66,9 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
         print("o ficheiro nº " + str(i3) + " contem as seguintes linhas:")                                      #esta parte esta encarregada de dar print a "tudo"
         print(linhas[i2])                                                                                   #mas se o utilizador nao colocar -c ou -l 
         if Rc == True:                                                                                     # ele automaticamente nao da print disso.
-            print("o numero total de ocorrencias da palavra neste ficheiro foram " + str(ocorrencias[i]))       #isto está organizado por ficheiro (cada ficheiro N
+            print("o numero total de ocorrencias da palavra neste ficheiro foram " + str(ocorrencias[i2]))       #isto está organizado por ficheiro (cada ficheiro N
         if Rl == True:                                                                                     #da print das suas linhas, e depois o ficheiro N+1 faz o 
-            print("o numero total de linhas com esta palavra neste ficheiro foram " + str(nlinhas[i]))
+            print("o numero total de linhas com esta palavra neste ficheiro foram " + str(nlinhas[i2]))
 
 
 
