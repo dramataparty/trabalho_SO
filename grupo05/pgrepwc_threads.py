@@ -19,6 +19,9 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
                 n = 0
                 nline = 0
                 lines = []
+                linhas = []
+                ocorrencias=[]
+                nlinhas=[]
                 for linha in file:
                     palavras = linha.split()
                     if Lword in palavras:                              #Função encarregada de ler varios ficheiros e adicionar as linhas encontradas
