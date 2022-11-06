@@ -14,10 +14,10 @@ def main(Rword,Rfiles,Rc,Rl,Rpn,Re):
         nlinhas = []
 #------------------------------------------------------------------------------------------
     def ler(Lword,Lfiles,Lc,Ll):
+        linhas = []
+        ocorrencias=[]
+        nlinhas=[]
         for Lfile in Lfiles:
-            linhas = []
-            ocorrencias=[]
-            nlinhas=[]
             with open(Lfile, 'r', encoding='utf_8') as file:
                 n = 0
                 nline = 0
